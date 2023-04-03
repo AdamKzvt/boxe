@@ -1,0 +1,66 @@
+
+body{
+ 
+    background-image: url("/media/kamel.jpg") ;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-family: 'Times New Roman', Times, serif;
+
+
+}
+.in{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    align-items: center; 
+    background-size: 120%;
+    height: 70vh;
+    width: 50vh;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.644);
+
+}
+
+.inputI{
+    width: 100%;
+    height: 5%;
+    border-radius: 20px;
+    margin: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div{
+    justify-content: center;
+    text-align: center;
+}
+
+.btn {
+    width: 60%;
+    height: 5%;
+    padding: 5%;
+    margin: 2%;
+    background-color: rgb(207, 207, 207);
+    font-size: 100%;
+    color: aliceblue;
+    border-radius: 20px;
+    text-align: center; line-height: 8px;
+   
+}
+
+.inputN{
+    display: flex;
+    width: 100%;
+    height: 5%;
+    border-radius: 20px;
+    margin: 2%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}

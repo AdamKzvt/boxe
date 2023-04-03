@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/media/css/styleShow.css">
+{% endblock %}
+{% block title %}Article
+{% endblock %}
+
+{% block body %}
+
+
+	<article>
+		<main>
+
+			<h1>
+				<span class="focusing">{{ article.titre }}</span>
+			</h1>
+			<cite>
+				Redigée par
+				<span class="name">{{ article.user.nom }}
+									{{ article.user.prenom }}
+				</span>
+						Date de Creation
+				<span class="name">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</span>
+			</cite>
+			<img class="img" style="max-width: 100%" "border-radius: 20px" src="{{ vich_uploader_asset(article, 'imageFile')}}">
+			<p>{{ article.contenu }}</p>
+			<div>
+				<td>
+					<a class="btn" href="{{ path('app_article_index') }}">back to list</a>
+				</td>
+				<td>
+					<a class="btn" href="{{ path('app_article_edit', {'id': article.id}) }}">éditer</a>
+				</td>
+				<td>
+				<a class="btn">{{include('article/_delete_form.html.twig')}}</a>
+				</td>
+			</div>
+			<div>
+			<h3 class="tc">Ajoutez un commentaire</h3>
+			<div>
+			{{form(commentForm)}}
+			</div>
+			
+			</div>
+			<div class="comment">
+				<h3 class="tc">Commentaire</h3>
+
+				{% for commentaires in article.commentaires %}
+
+ <div class="d-flex justify-content-center py-2">
+        <div class="second py-2 px-2"> <span class="text1">{{ commentaires.contenu }}</span>
+            <div class="d-flex justify-content-between py-1 pt-2">
+                <div><span class="text2">{{ commentaires.user.nom }} {{ commentaires.user.prenom }} </span></div>
+				
+				<a>{{include('article/_delete_form.html.twig')}}</a>
+				
+                <div><span class="text3">Upvote?</span><span class="thumbup"><i class="fa fa-thumbs-o-up"></i></span><span class="text4">3</span></div>
+            </div>
+        </div>
+    </div>
+
+
+				{% else %}
+					Aucun commentaire pour le moment
+				{% endfor %}
+			</div>
+		</main>
+	</article>
+
+
+{% endblock %}

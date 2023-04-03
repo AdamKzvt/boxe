@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Commentaires index{% endblock %}
+
+{% block body %}
+    <h1>Commentaires index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Contenu</th>
+                <th>User_id</th>
+                <th>Article_id</th>
+                <th>Avis</th>
+                <th>Created_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.id }}</td>
+                <td>{{ commentaire.contenu }}</td>
+                <td>{{ commentaire.user.nom }}</td>
+                <td>{{ commentaire.articleId }}</td>
+                <td>{{ commentaire.createdAt ? commentaire.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_commentaires_show', {'id': commentaire.id}) }}">show</a>
+                    <a href="{{ path('app_commentaires_edit', {'id': commentaire.id}) }}">éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_commentaires_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Boxeur{% endblock %}
+
+{% block body %}
+    <h1>Create new Boxeur</h1>
+
+    {{ include('boxeur/_form.html.twig') }}
+
+    <a href="{{ path('app_boxeur_index') }}">back to list</a>
+{% endblock %}

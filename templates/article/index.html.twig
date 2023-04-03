@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/media/css/styleShow.css">
+{% endblock %}
+
+{% block body %}
+
+ {% for article in articles %}
+
+
+    <a class="newAr" type="button" href="{{ path('app_article_new', {'id': article.id}) }}">Ecrire un Article</a>
+   
+
+
+
+<article>
+	<main>
+	<h1>
+		<span class="focusing">{{ article.titre }}</span> 
+	</h1>
+	<cite>
+		Redigée par <span class="name">{{ article.user.nom }} {{ article.user.prenom }}</span> | 
+		Date de Creation <span class="name">{{ article.createdAt ? article.createdAt|date('Y-m-d H:i') : '' }}</span>
+	</cite>
+	<img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(article, 'imageFile')}}">
+	<p>{{ article.contenu }}</p>
+    <div >
+         <td>
+           
+            <a type="button" class="btn"  href="{{ path('app_article_show', {'id': article.id}) }}">Consultez</a>
+        </td>
+        <td>
+            <a type="button"  class="btn"href="{{ path('app_article_edit', {'id': article.id}) }}">Editez</a>
+        </td>
+
+    </div>
+	</main>
+
+</article>
+
+<hr>
+
+      {% else %}
+            <tr>
+                <td colspan="7">Il n'y a pas d'article de dsiponible pour le moment.</td>
+            </tr>
+
+{% endfor %}
+
+
+{% endblock %}

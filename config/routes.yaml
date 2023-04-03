@@ -1,0 +1,7 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+staff_show:
+    path: /staff/{id}
+    controller: App\Controller\StaffController::show

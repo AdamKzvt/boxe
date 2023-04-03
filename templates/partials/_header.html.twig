@@ -1,0 +1,48 @@
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="/media/css/header.css">
+{% endblock %}
+
+<nav style="position: static;  z-index: 9999; "class="  navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{{ path('app_home')}}"><img src={{ asset('media/logoBoxe.png')}} width = "100vh"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse  " id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{{ path('app_home')}}">Acceuil
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_histoire')}}">Notre Histoire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_article_index')}}">Le Blog</a>
+        </li>
+
+        {% if app.user %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+        {{ app.user.userIdentifier }}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Modifier Profil</a>
+            <a class="dropdown-item" href="{{ path('app_admin') }}">Administartions</a>
+            <a class="dropdown-item" href="{{ path('app_logout') }}">Deconnexion</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Contact</a>
+          </div>
+        </li>
+        {% else %}
+                <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_login')}}">Connexion</a>
+        </li>
+    {% endif %}
+        
+        </ul>
+  </div>
+</nav> 
+
+
+

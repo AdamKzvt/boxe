@@ -1,0 +1,51 @@
+/* Connexion  */
+
+body{
+    background-color: #1a1a1a60;
+    background-image: url("/media/younes.jpg");
+ 
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Times New Roman', Times, serif;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+    align-items: center; 
+    background-color: rgba(0, 0, 0, 0.644);
+    background-size: 120%;
+    height: 70vh;
+    width: 50vh;
+    border-radius: 20px;
+    color: rgb(255, 255, 255);
+    margin-bottom: 20%;
+
+}
+
+h1{
+    color: aliceblue;
+}
+.input{
+    width: 60%;
+    height: 5%;
+    border-radius: 20px;
+    margin: 2%;
+}
+
+.btn {
+    width: 60%;
+    height: 5%;
+    padding: 5%;
+    margin: 2%;
+    background-color: black;
+    font-size: 100%;
+    color: aliceblue;
+    border-radius: 20px;
+    text-align: center; line-height: 8px;
+   
+}
+

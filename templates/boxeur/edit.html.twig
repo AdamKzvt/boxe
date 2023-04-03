@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Boxeur{% endblock %}
+
+{% block body %}
+    <h1>Edit Boxeur</h1>
+
+    {{ include('boxeur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_boxeur_index') }}">back to list</a>
+
+    {{ include('boxeur/_delete_form.html.twig') }}
+{% endblock %}

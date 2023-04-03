@@ -1,0 +1,51 @@
+.inputN{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vh;
+}
+
+.inputNM{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vh;
+    height: 300px;
+}
+.required{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+.vich-image{
+    display: flex;
+justify-content: center;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
