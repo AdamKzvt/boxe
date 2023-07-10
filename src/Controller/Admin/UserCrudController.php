@@ -23,9 +23,8 @@ class UserCrudController extends AbstractCrudController
             return $crud
                     ->setEntityLabelInplural('Utilisateurs')
                     ->setEntityLabelInSingular('Utilisateur')
-                    ->setPaginatorPageSize(10)
-                    
-                    ->setPageTitle("index","Boxing Club Heninois - Administartions des Utilisateurs");
+                    ->setPaginatorPageSize(10)   
+                    ->setPageTitle("index","Boxing Club Heninois - Administration des Utilisateurs");
         }
     
 

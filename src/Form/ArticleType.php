@@ -17,23 +17,22 @@ class ArticleType extends AbstractType
     {
         $builder
 
-        ->add('titre', TextType::class,[
-            'attr'=>[
-                'class'=>'inputN'
-            ]
-        ])
-        ->add('imageFile', VichImageType::class,[
-            'attr'=>[
-                'class'=>'image'
-            ],
-            "label" => false, 
-            ])
-
-            ->add('contenu', TextareaType::class,[
-                'attr'=>[
-                    'class'=>'inputNM'
-                ]
-            ])
+    ->add('titre', TextType::class, [
+        'attr' => [
+            'class' => 'form-control'
+        ]
+    ])
+    ->add('imageFile', VichImageType::class, [
+        'attr' => [
+            'class' => 'form-control'
+        ],
+        'label' => false,
+    ])
+    ->add('contenu', TextareaType::class, [
+        'attr' => [
+            'class' => 'form-control'
+        ]
+    ])
 
         ;
     }

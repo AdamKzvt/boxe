@@ -8,12 +8,6 @@
 
  {% for article in articles %}
 
-
-    <a class="newAr" type="button" href="{{ path('app_article_new', {'id': article.id}) }}">Ecrire un Article</a>
-   
-
-
-
 <article>
 	<main>
 	<h1>
@@ -25,9 +19,8 @@
 	</cite>
 	<img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(article, 'imageFile')}}">
 	<p>{{ article.contenu }}</p>
-    <div >
+    <div class="btnCE" >
          <td>
-           
             <a type="button" class="btn"  href="{{ path('app_article_show', {'id': article.id}) }}">Consultez</a>
         </td>
         <td>
@@ -42,11 +35,21 @@
 <hr>
 
       {% else %}
+
+
+
+<div class="redac">
             <tr>
-                <td colspan="7">Il n'y a pas d'article de dsiponible pour le moment.</td>
+            <div class="msg">
+            Il n'y a pas d'article pour le moment.
+            </div>
+                <td colspan="7"><a class="redaction" href="{{ path('app_article_new') }}">Rédiger un article</a></td>
             </tr>
+</div>
 
 {% endfor %}
+
+
 
 
 {% endblock %}

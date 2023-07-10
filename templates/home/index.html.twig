@@ -2,16 +2,50 @@
 
 {% block stylesheets %}
 	<link rel="stylesheet" href="/media/css/stylea.css">
+	<link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+{% endblock %}
+
+{% block javascripts %}
+	<script src="/media/script/carou.js" defer></script>
 {% endblock %}
 
 {% block body %}
 
-	
+
+    <section aria-label="Newest Photos">
+    <div class="carousel" data-carousel>
+      <button class="carousel-button prev" data-carousel-button="prev">&#8656;</button>
+      <button class="carousel-button next" data-carousel-button="next">&#8658;</button>
+      <ul data-slides>
+        <li class="slide" data-active>
+          <img src="/media/laid.jpg" alt="Nature Image #1">
+        </li>
+        <li class="slide">
+          <img src="/media/youyou.jpg" alt="Nature Image #2">
+        </li>
+        <li class="slide">
+          <img src="/media/ga.jpg" alt="Nature Image #3">
+        </li>
+		<li class="slide">
+          <img src="/media/laidd.jpg" alt="Nature Image #3">
+        </li>
+		<li class="slide">
+          <img src="/media/ga2.jpg" alt="Nature Image #3">
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
 	<div>
-		<img class="flex-image" src="/media/laid.jpg" alt=""> <div class="divA">
+		<div class="divA">
 			<p>
-				<h1>
-					Saison 2022-2023</h1>
+				<h1>Saison 2022-2023</h1>
 			</p>
 			<p class="p1">"La boxe n'est pas seulement un sport, c'est un mode de vie. Découvrez-le chez nous."</p>
 		</div>
@@ -20,16 +54,22 @@
 			<div class="pres">
 				<h2>Le club</h2>
 				<p class="p2">
-					Notre club de boxe est l'endroit idéal pour ceux qui cherchent à améliorer leur condition physique, apprendre les techniques de boxe et se défouler en même temps. Que vous soyez un débutant ou un boxeur expérimenté, notre personnel qualifié vous guidera dans votre parcours d'entraînement.
+					Notre club de boxe est l'endroit idéal pour ceux qui cherchent à améliorer leur condition physique,
+									apprendre les techniques de boxe et se défouler en même temps. Que vous soyez un débutant ou un boxeur
+									expérimenté, notre personnel qualifié vous guidera dans votre parcours d'entraînement.
 				</p>
 				<p class="p2">
-					Nous mettons à votre disposition du matériel de qualité, des salles d'entraînement spacieuses et bien équipées, ainsi que des douches et des vestiaires pour votre confort.
+					Nous mettons à votre disposition du matériel de qualité, des salles d'entraînement spacieuses et bien
+									équipées, ainsi que des douches et des vestiaires pour votre confort.
 				</p>
 				<p class="p2">
-					Nous croyons que la boxe est plus qu'un sport - c'est un mode de vie. Rejoignez notre club aujourd'hui et découvrez comment la boxe peut vous aider à atteindre vos objectifs de fitness, à développer votre confiance en vous et à vous sentir plus en forme et en santé que jamais.
+					Nous croyons que la boxe est plus qu'un sport - c'est un mode de vie. Rejoignez notre club aujourd'hui
+									et découvrez comment la boxe peut vous aider à atteindre vos objectifs de fitness, à développer votre
+									confiance en vous et à vous sentir plus en forme et en santé que jamais.
 				</p>
 				<p class="p2">
-				Nous sommes impatients de vous accueillir au club et de vous aider à commencer votre voyage vers un style de vie plus actif et plus sain!
+					Nous sommes impatients de vous accueillir au club et de vous aider à commencer votre voyage vers un
+									style de vie plus actif et plus sain!
 				</p>
 			</div>
 			<div class="imageC">
@@ -39,35 +79,29 @@
 
 
 		<div class="contain">
-		{% for licence in licences %}
-			<div class="card">
-				<div class="card-header">
-					<img class="img" style="max-width: 100%; border-radius:8px;" src="{{ vich_uploader_asset(licence, 'imageFile')}}">
+			{% for licence in licences %}
+				<div class="card">
+					<div class="card-header">
+						<img class="img" style="max-width: 100%; border-radius:8px;" src="{{ vich_uploader_asset(licence, 'imageFile')}}">
+					</div>
+					<div class="card-body">
+						<h4>{{ licence.titre }}</h4>
+						<span class="tag tag-teal">{{ licence.prix }}</span>
+						<div class"info">{{ licence.information|raw }}</div>
+						<hr>
+						<div class"info">{{ licence.horaire|raw }}</div>
+					</div>
 				</div>
-				<div class="card-body">
-					<h4>
-					{{ licence.titre }}
-					</h4>
-					<span class="tag tag-teal">{{ licence.prix }}</span>
-					<p>
-					{{ licence.information|raw }}
-					</p>
-					<p>
-						{{ licence.horaire|raw }}
-					</p>
-				</div>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
 			</div>
 
-			        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-			</div>
+		{% endfor %}
+	</div>
+	<div id="container">
+  			<marquee id="text" behavior="scroll" direction="left"></marquee>
+	</div>
 
-        {% endfor %}
-        </tbody>
-    </table>
-
-</div>
 {% endblock %}
-

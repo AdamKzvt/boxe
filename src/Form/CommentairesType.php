@@ -16,17 +16,14 @@ class CommentairesType extends AbstractType
         $builder
             ->add('contenu',TextareaType::class, [
                 'attr' => ['class' => 'textarea'],
+                "label" => false,
             ])
             ->add('Envoyer', SubmitType::class,[
-                'attr'=>['class'=> 'btnn']
-            ])
-
-        ;
+                'attr'=>['class'=> 'btnnn']
+            ]);
      
     }
-
-
-    public function configureOptions(OptionsResolver $resolver): void
+     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
             'data_class' => Commentaires::class,

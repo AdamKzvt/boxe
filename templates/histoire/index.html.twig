@@ -2,243 +2,95 @@
 {% block stylesheets %}
 	<link rel="stylesheet" href="media/css/styleH.css">
 {% endblock %}
-{% block title %}Hello HistoireController!{% endblock %}
+{% block title %}Hello HistoireController!
+{% endblock %}
 
 {% block body %}
-<section>
-<h1>
-Les Responsables du club
-</h1>
-<div class="center">
+	<section>
+		<h1>
+			Les Responsables du club
+		</h1>
+		<div class="center">
 
-{% for staff in staff %}
+			{% for staff in staffs %}
 
-  <div class="property-cardM">
-    <a href="#">
-	  <img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(staff, 'imageFile')}}">
-
-      <div class="property-imageM">
-        <div class="property-image-titleM">
-        </div>
-      </div></a>
-    <div class="property-descriptionM">
-      <h5>{{ staff.nomPrenom }}</h5>
-      <p>{{ staff.information|raw }}</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsM">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
-              {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-</div>
-
-
-<div class="hist">
-  <div>
-  <h1 class="his">
-  Notre Hisotire
-  </h1>
-    <div>
-      Notre club de boxe a été fondé il y a plus de [x] ans par [nom du fondateur], un ancien boxeur professionnel passionné par ce sport. Depuis, nous avons établi une réputation solide en tant que club de boxe de qualité supérieure, accueillant des boxeurs de tous niveaux et âges.
-    </div>
-    <div>
-    Au fil des ans, notre club a formé de nombreux champions de boxe locaux et nationaux, et a participé à de nombreux événements de boxe importants. Nous sommes fiers de notre héritage de formation de boxeurs de haut niveau et de notre engagement envers l'excellence en matière d'entraînement et de soutien.
-    </div>
-    <div>
-    Notre club offre un environnement accueillant et stimulant pour les boxeurs de tous niveaux, y compris des cours pour les débutants, des entraînements de groupe intense et des séances individuelles avec nos instructeurs expérimentés. Nous croyons en la promotion de la boxe comme moyen de développer la confiance en soi, la forme physique et les compétences de défense personnelle.
-    </div>
-    <div>
-    Rejoignez notre club pour faire partie de notre riche histoire de formation de boxeurs de qualité supérieure, et découvrez comment la boxe peut améliorer votre vie. Nous sommes impatients de vous accueillir chez nous et de vous aider à atteindre vos objectifs de fitness et de boxe.
-    </div>
-  </div>
-</div>
-
-<h1>
-Nos Boxeurs Professionel
-</h1>
-
-<div class="suite">
-{% for boxeur in boxeurs %}
-<div class="property-cardM">
-    <a href="#">
-    <img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(boxeur, 'imageFile')}}">
-      <div class="property-imageM">
-        <div class="property-image-titleM">
-        </div>
-      </div></a>
-    <div class="property-descriptionM">
-      <h5>{{ boxeur.nomPrenom }}</h5>
-      <p>{{ boxeur.information|raw }}</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsM">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-  {# <div class="property-cardL">
-    <a href="#">
-      <div class="property-imageL">
-        <div class="property-image-titleL">
-
-        </div>
-      </div></a>
-    <div class="property-descriptionL">
-      <h5> Laid Douadi</h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsL">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
-
-    <div class="property-cardY">
-    <a href="#">
-      <div class="property-imageY">
-        <div class="property-image-titleY">
-
-        </div>
-      </div></a>
-    <div class="property-descriptionY">
-      <h5> Younes Mehidi</h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsY">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
-
-      <div class="property-cardE">
-    <a href="#">
-      <div class="property-imageE">
-        <div class="property-image-titleE">
-       
-        </div>
-      </div></a>
-    <div class="property-descriptionE">
-      <h5> Enzo Santoro</h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsE">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div> #}
-</div>
+				<div class="property-cardM">
+					<a
+						href="#">
+						{# <img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(staff, 'imageFile')}}"> #}
+						<div class="property-imageM" style="background-image:url('{{ vich_uploader_asset(staff, 'imageFile')}}'); ">
+							<div class="property-image-titleM"></div>
+						</div>
+					</a>
+					<div class="property-descriptionM">
+						<h5>{{ staff.nomPrenom }}</h5>
+						<p>{{ staff.information|raw }}</p>
+					</div>
+					<a href="#">
+						<div
+							class="property-social-iconsM"><!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+						</div>
+					</a>
+				</div>
+			{% else %}
+				<tr>
+					<td colspan="4">no records found</td>
+				</tr>
+			{% endfor %}
+		</div>
 
 
-  {# <div class="suite2">
+		<div class="hist">
+			<div>
+				<h1 class="his">
+					Notre Hisotire
+				</h1>
+				<div>
+					Notre club de boxe a été fondé il y a plus de [x] ans par [nom du fondateur], un ancien boxeur professionnel passionné par ce sport. Depuis, nous avons établi une réputation solide en tant que club de boxe de qualité supérieure, accueillant des boxeurs de tous niveaux et âges.
+				</div>
+				<div>
+					Au fil des ans, notre club a formé de nombreux champions de boxe locaux et nationaux, et a participé à de nombreux événements de boxe importants. Nous sommes fiers de notre héritage de formation de boxeurs de haut niveau et de notre engagement envers l'excellence en matière d'entraînement et de soutien.
+				</div>
+				<div>
+					Notre club offre un environnement accueillant et stimulant pour les boxeurs de tous niveaux, y compris des cours pour les débutants, des entraînements de groupe intense et des séances individuelles avec nos instructeurs expérimentés. Nous croyons en la promotion de la boxe comme moyen de développer la confiance en soi, la forme physique et les compétences de défense personnelle.
+				</div>
+				<div>
+					Rejoignez notre club pour faire partie de notre riche histoire de formation de boxeurs de qualité supérieure, et découvrez comment la boxe peut améliorer votre vie. Nous sommes impatients de vous accueillir chez nous et de vous aider à atteindre vos objectifs de fitness et de boxe.
+				</div>
+			</div>
+		</div>
 
-    <div class="property-cardO">
-    <a href="#">
-      <div class="property-imageO">
-        <div class="property-image-titleO">
-      
-        </div>
-      </div></a>
-    <div class="property-descriptionO">
-      <h5> Oshin Derieuw</h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsO">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
+		<h1>
+			Nos Boxeurs Professionel
+		</h1>
 
-  <div class="property-cardA">
-    <a href="#">
-      <div class="property-imageA">
-        <div class="property-image-titleA">
-   
-        </div>
-      </div></a>
-    <div class="property-descriptionA">
-      <h5> Anthony Deloffre </h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsA">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
+		<div class="suite">
+			{% for boxeur in boxeurs %}
+				<div class="property-cardM">
+					<a
+						class="modif">
+						{# <img class="img" style="max-width: 100%" src="{{ vich_uploader_asset(boxeur, 'imageFile')}}"> #}
+						<div class="property-imageM" style="background-image:url('{{ vich_uploader_asset(boxeur, 'imageFile')}}'); ">
+							<div class="property-image-titleM"></div>
+						</div>
+					</a>
+					<div class="property-descriptionM">
+						<h5>{{ boxeur.nomPrenom }}</h5>
+						<p>{{ boxeur.information|raw }}</p>
+					</div>
+					<a href="#">
+						<div
+							class="property-social-iconsM"><!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+						</div>
+					</a>
+				</div>
+			{% else %}
+				<tr>
+					<td colspan="5">no records found</td>
+				</tr>
+			{% endfor %}
 
-    <div class="property-cardH">
-    <a href="#">
-      <div class="property-imageH">
-        <div class="property-image-titleH">
-   
-        </div>
-      </div></a>
-    <div class="property-descriptionH">
-      <h5> Hassan Azaouagh</h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsH">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
 
-      <div class="property-cardK">
-    <a href="#">
-      <div class="property-imageK">
-        <div class="property-image-titleK">
+		</section>
 
-        </div>
-      </div></a>
-    <div class="property-descriptionK">
-      <h5> Kamel Benyattou </h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsK">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div>
-</div>
-
-<div class="suite3">
-<div class="property-cardG">
-    <a href="#">
-      <div class="property-imageG">
-        <div class="property-image-titleG">
-
-        </div>
-      </div></a>
-    <div class="property-descriptionG">
-      <h5> Gaëtan Ntambwe </h5>
-      <p>Lorem Ipsum Dipsum hortata. Mixcall Horcho. Mixwell Chingo. More Bingo. Lorem Ipum doth be hard.</p>
-    </div>
-    <a href="#">
-      <div class="property-social-iconsG">
-        <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
-      </div>
-    </a>
-  </div> #}
-  
-{# </div> #}
-  
-</section>
-
-{% endblock %}
+	{% endblock %}

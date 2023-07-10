@@ -15,7 +15,7 @@ class HistoireController extends AbstractController
     {
         return $this->render('histoire/index.html.twig', [
             'controller_name' => 'HistoireController',
-            'staff'=>$staffRepository->findAll(),
+            'staffs'=>$staffRepository->findAll(),
             'boxeurs'=>$boxeurRepository->findAll(),
             
         ]);

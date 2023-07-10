@@ -1,4 +1,10 @@
+body{
+	font-family: 'Times New Roman', Times, serif;
+}
+
+
 #navbarColor01{
-    margin-left: 18%;
+
     font-size: large;
+    margin-left: 18%;
 }

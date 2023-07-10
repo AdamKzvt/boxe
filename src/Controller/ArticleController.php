@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 #[Route('/article')]
@@ -28,6 +29,7 @@ class ArticleController extends AbstractController
     
 
     #[Route('/new', name: 'app_article_new', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_ADMIN')]
     public function new(Request $request, ArticleRepository $articleRepository): Response
     {
         $article = new Article();
@@ -58,12 +60,8 @@ class ArticleController extends AbstractController
 
         if ($commentform->isSubmitted() && $commentform->isValid()){
             $commentairesRepository->save($commentaire, true);
-          
-            return $this->redirectToRoute('app_article_show', ['id' => $id], Response::HTTP_SEE_OTHER);
-        
-            $this->addFlash('messgae', 'Votre commentaire a été ajoutez');
-            return $this->redirectToRoute('app_article_show');
 
+            return $this->redirectToRoute('app_article_show', ['id' => $id], Response::HTTP_SEE_OTHER);
         }
 
         if ($this->isCsrfTokenValid('delete'.$commentaire->getId(), $request->request->get('_token'))) {
@@ -95,16 +93,19 @@ class ArticleController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_article_delete', methods: ['POST'])]
-    public function delete(Request $request, Article $article, ArticleRepository $articleRepository): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
-            $articleRepository->remove($article, true);
+#[Route('/{id}/delete', name: 'app_article_delete', methods: ['POST'])]
+public function delete(Request $request, Article $article, ArticleRepository $articleRepository, CommentairesRepository $commentairesRepository): Response
+{
+    if ($this->isCsrfTokenValid('delete'.$article->getId(), $request->request->get('_token'))) {
+        // Obtenir les commentaires associés à l'article.
+        $arrCom = $article->getCommentaires();
+        // Pour chaque commentaire trouvé, supprimez-le.
+        foreach($arrCom as $com){
+            $commentairesRepository->remove($com);
         }
-
-        return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+        $articleRepository->remove($article, true);
     }
-    
-    
 
+    return $this->redirectToRoute('app_article_index', [], Response::HTTP_SEE_OTHER);
+}
 }

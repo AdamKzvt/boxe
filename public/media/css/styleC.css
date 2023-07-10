@@ -3,7 +3,6 @@
 body{
     background-color: #1a1a1a60;
     background-image: url("/media/younes.jpg");
- 
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Times New Roman', Times, serif;
@@ -19,7 +18,7 @@ body{
     background-color: rgba(0, 0, 0, 0.644);
     background-size: 120%;
     height: 70vh;
-    width: 50vh;
+    width: 30vw;
     border-radius: 20px;
     color: rgb(255, 255, 255);
     margin-bottom: 20%;
@@ -49,3 +48,38 @@ h1{
    
 }
 
+@media (max-width: 768px){
+    body{
+        background-position: center;
+    }
+    .form{
+        width: 80%;
+        margin-top: 60px;
+    }
+    h1{
+        font-size: 22px ;
+    }
+    .btn{
+        font-size: 15px;
+        text-align: center; line-height: 0px;
+    }
+}
+
+@media (max-width: 991px){
+
+        body{
+        background-position: center;
+    }
+    .form{
+        width: 80%;
+        margin-top: 60px;
+    }
+    h1{
+        font-size: 22px ;
+    }
+    .btn{
+        font-size: 15px;
+        text-align: center; line-height: 0px;
+    }
+
+}
